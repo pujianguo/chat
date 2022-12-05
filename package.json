@@ -9,8 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "daisyui": "^2.42.1",
     "ethers": "^5.7.2",
+    "events": "^3.3.0",
+    "process": "^0.11.10",
+    "util": "^0.12.5",
     "vue": "^3.2.41",
     "vue-dapp": "^0.6.2",
     "vue-router": "^4.1.6"

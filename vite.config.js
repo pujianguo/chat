@@ -13,6 +13,12 @@ export default defineConfig({
       components: resolve(__dirname, 'src/components'),
       utils: resolve(__dirname, 'src/utils'),
       api: resolve(__dirname, 'src/api'),
+
+      process: 'process/browser',
+      util: 'util',
     },
+  },
+  define: {
+    global: 'globalThis',
   },
 })
