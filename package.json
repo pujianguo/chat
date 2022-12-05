@@ -9,7 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "daisyui": "^2.42.1",
+    "ethers": "^5.7.2",
     "vue": "^3.2.41",
+    "vue-dapp": "^0.6.2",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
