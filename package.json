@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "buffer": "^6.0.3",
-    "daisyui": "^2.42.1",
     "ethers": "^5.7.2",
     "events": "^3.3.0",
+    "naive-ui": "^2.34.2",
     "process": "^0.11.10",
     "util": "^0.12.5",
     "vue": "^3.2.41",
@@ -31,6 +31,8 @@
     "postcss": "^8.4.19",
     "sass": "^1.56.1",
     "tailwindcss": "^3.2.4",
+    "unplugin-auto-import": "^0.12.0",
+    "unplugin-vue-components": "^0.22.11",
     "vite": "^3.2.3"
   }
 }
