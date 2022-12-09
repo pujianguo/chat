@@ -2,8 +2,8 @@
 import Header from './Header.vue'
 
 // 挂载window下方法组件，放在App中会报错
-window.$message = useMessage();
-window.$dialog = useDialog();
+window.$message = useMessage()
+window.$dialog = useDialog()
 
 </script>
 

@@ -36,10 +36,7 @@ export default defineConfig({
       api: resolve(__dirname, 'src/api'),
 
       process: 'process/browser',
-      // util: 'util',
+      util: 'util',
     },
-  },
-  define: {
-    global: 'globalThis',
   },
 })
