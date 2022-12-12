@@ -1,5 +1,6 @@
 <script setup>
-import { showMessage } from '../utils';
+import { ref } from 'vue'
+import { showMessage } from '../utils'
 
 const handleClick = () => {
   showMessage('Cause you walked hand in hand With another man in my place')
@@ -20,7 +21,6 @@ const onPositiveClick = () => {
 const onNegativeClick = () => {
 
 }
-
 
 </script>
 
@@ -62,7 +62,10 @@ const onNegativeClick = () => {
 </template>
 
 <style lang="scss">
-.home-page{
-
+.home-page {
+  .card {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 </style>
