@@ -27,7 +27,7 @@ const onNegativeClick = () => {
 <template>
   <div class="home-page w-screen h-screen flex flex-col items-center justify-center">
     <div class="mb-4">
-      <n-tag> 爱在西元前 </n-tag>
+      <n-tag> 爱在西元前 test </n-tag>
     </div>
     <div class="mb-4">
         <n-button @click="handleClick">Click</n-button>
