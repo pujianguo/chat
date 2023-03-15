@@ -9,7 +9,7 @@ window.$dialog = useDialog()
 
 <template>
   <div class="">
-    <Header />
+    <!-- <Header /> -->
     <router-view></router-view>
   </div>
 </template>

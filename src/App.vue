@@ -1,12 +1,12 @@
 <script setup>
 import { createTheme, inputDark, datePickerDark, zhCN, dateZhCN } from 'naive-ui'
 
-const darkTheme = createTheme([inputDark, datePickerDark])
+// const darkTheme = createTheme([inputDark, datePickerDark])
 
 </script>
 
 <template>
-  <n-config-provider :theme="darkTheme" :locale="zhCN" :date-locale="dateZhCN">
+  <n-config-provider :locale="zhCN" :date-locale="dateZhCN">
     <n-dialog-provider>
       <n-message-provider>
         <router-view></router-view>
