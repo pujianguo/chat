@@ -7,7 +7,7 @@ import { createQuestion, getQuestionStatus } from '@/api'
 
 const list = ref([])
 let index = -1
-const  submitLoading = ref(false)
+const submitLoading = ref(false)
 const questionValue = ref('')
 const chatRoomId = ref('')
 
@@ -25,12 +25,13 @@ const handleSubmit = async () => {
   index++
   const data = {
     chat_room_id: chatRoomId.value,
-    question: questionValue.value
+    question: questionValue.value,
   }
   const createRes = await createQuestion(data)
   chatRoomId.value = createRes.chat_room_id
+  questionValue.value = ''
   const timer = setInterval(async () => {
-    const res = await getQuestionStatus({question_id: createRes.question_id})
+    const res = await getQuestionStatus({ question_id: createRes.question_id })
     if (res.status === 'answered') {
       submitLoading.value = false
       console.log('list', list)
@@ -43,10 +44,10 @@ const handleSubmit = async () => {
 }
 const handleKeydown = (e) => {
   if (!e.shiftKey && e.keyCode == 13) {
-    e.cancelBubble = true;
-    e.stopPropagation(); //Firefox阻止冒泡行为
-    e.preventDefault(); //取消事件的默认动作*换行
-    if (e.keyCode == 13) {
+    e.cancelBubble = true
+    e.stopPropagation() // Firefox阻止冒泡行为
+    e.preventDefault() // 取消事件的默认动作*换行
+    if (e.keyCode === 13) {
       if (submitLoading.value) {
         showWarningMessage('请等待上个问题结束')
         return
@@ -56,12 +57,11 @@ const handleKeydown = (e) => {
   }
 }
 
-
 </script>
 
 <template>
   <div class="home-page w-screen h-screen  ">
-    <div class="fixed top-0 left-0 z-10 w-full py-5 flex justify-center bg-white shadow-sm	">
+    <div class="fixed bottom-0 left-0 z-10 w-full py-5 flex justify-center bg-white shadow-sm">
       <div class="container">
         <n-input class="" v-model:value="questionValue" type="textarea" placeholder="请输入" :autosize="{minRows: 1}" @keydown="handleKeydown">
           <template #suffix>
@@ -74,7 +74,7 @@ const handleKeydown = (e) => {
         </n-input>
       </div>
     </div>
-    <div class="w-full mt-20 h-[1000px] bg-light-100 flex justify-center">
+    <div class="w-full mb-20 bg-light-100 flex justify-center">
       <div class="container">
         <div class="w-full mt-5" v-for="(item, i) in list" :key="i">
           <div class="w-full flex p-5 bg-gray-100">
