@@ -12,6 +12,10 @@ const questionValue = ref('')
 const chatRoomId = ref('')
 
 const handleSubmit = async () => {
+  if (questionValue.value === '') {
+    showWarningMessage('请输入提问内容！')
+    return
+  }
   submitLoading.value = true
   const listItem = {
     chat_room_id: chatRoomId.value,
@@ -19,7 +23,6 @@ const handleSubmit = async () => {
     question_id: '',
     question: questionValue.value,
     answer: '',
-    // answer: "\n\n1. 第一天：到达西安\n\n抵达西安后，可以先前往酒店休息一下，调整好状态后再开始旅游之旅。建议选择市中心较为繁华的地段，方便游览。\n\n2. 第二天：古城墙、钟楼鼓楼和回民街\n\n上午，可以先去参观西安古城墙，这是世界上最完整、最长的古城墙之一。墙顶可以骑自行车或步行一圈，感受古都的气息。随后可以前往钟楼鼓楼，欣赏古城的钟鼓声和传统的巨型鼓乐表演。午餐后，可以前往回民街尝尝当地著名的小吃和特色美食。\n\n3. 第三天：秦始皇陵兵马俑\n\n这是西安必去之地。在秦始皇陵博物院参观兵马俑，深入了解秦文化和中国的古代历史。在附近一带还可以游览秦陵和秦汉艺术陈列馆。\n\n4. 第四天：大雁塔和小雁塔\n\n这两座塔都是中国古代建筑的代表作之一，是西安旅游的重要景点。大雁塔可以了解到行经西安的古代丝绸之路历史，还可以登塔观景，俯瞰城市景象。小雁塔则是古代佛教中的圣地，内有大量佛教文化精品，深入了解中国的佛教文化。\n\n5. 第五天：华清池和兴庆宫\n\n去往华清池游玩，这是一座古代的御花园，赏花品茗，体验古代皇宫文化。在此可游览温泉、御遗址和博物馆等景点。接着，前往兴庆宫，这里是唐朝皇宫遗址，了解唐代的历史和文化。\n\n6. 第六天：离开西安\n\n最后一天，可以在街头巷尾逛逛，尽情享受西安的历史文化氛围，之后离开西安。",
   }
   list.value.push(listItem)
   index++
