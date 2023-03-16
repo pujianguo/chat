@@ -34,9 +34,12 @@ const handleSubmit = async () => {
     const res = await getQuestionStatus({ question_id: createRes.question_id })
     if (res.status === 'answered') {
       submitLoading.value = false
-      console.log('list', list)
+      let answer = res.answer
+      if (answer.startsWith('\n\n')) {
+        answer = answer.substr(2)
+      }
       list.value[index].question_id = createRes.question_id
-      list.value[index].answer = res.answer
+      list.value[index].answer = answer
       list.value[index].loading = false
       clearInterval(timer)
     }
@@ -63,7 +66,7 @@ const handleKeydown = (e) => {
   <div class="home-page w-screen h-screen  ">
     <div class="fixed bottom-0 left-0 z-10 w-full py-5 flex justify-center bg-white shadow-sm">
       <div class="container">
-        <n-input class="" v-model:value="questionValue" type="textarea" placeholder="请输入" :autosize="{minRows: 1}" @keydown="handleKeydown">
+        <n-input class="shadow-2xl" v-model:value="questionValue" type="textarea" placeholder="请输入" :autosize="{minRows: 1}" @keydown="handleKeydown">
           <template #suffix>
             <n-button size="tiny" type="primary" secondary :loading="submitLoading" @click="handleSubmit">
               <template #icon>
